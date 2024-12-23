@@ -1,3 +1,4 @@
+#TODO
 # Ensure Ollama is installed and running at http://localhost:11434
 # To run local ollama server type: "ollama serve" in terminal
 
