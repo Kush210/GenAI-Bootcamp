@@ -1,0 +1,19 @@
+Artificial intelligence platform provider Clarifai has unveiled a new compute orchestration capability that promises to help enterprises optimise their AI workloads in any computing environment, reduce costs and avoid vendor lock-in.
+
+Announced on December 3, 2024, the public preview release lets organisations orchestrate AI workloads through a unified control plane, whether those workloads are running on cloud, on-premises, or in air-gapped infrastructure. The platform can work with any AI model and hardware accelerator including GPUs, CPUs, and TPUs.
+
+“Clarifai has always been ahead of the curve, with over a decade of experience supporting large enterprise and mission-critical government needs with the full stack of AI tools to create custom AI workloads,” said Matt Zeiler, founder and CEO of Clarifai. “Now, we’re opening up capabilities we built internally to optimise our compute costs as we scale to serve millions of models simultaneously.”
+
+The company claims its platform can reduce compute usage by 3.7x through model packing optimisations while supporting over 1.6 million inference requests per second with 99.9997% reliability. According to Clarifai, the optimisations can potentially cut costs by 60-90%, depending on configuration.
+
+Capabilities of the compute orchestration platform include:
+
+Cost optimisation through automated resource management, including model packing, dependency simplification, and customisable auto-scaling options that can scale to zero for model replicas and compute nodes,
+Deployment flexibility on any hardware vendor including cloud, on-premise, air-gapped, and Clarifai SaaS infrastructure,
+Integration with Clarifai’s AI platform for data labeling, training, evaluation, workflows, and feedback,
+Security features that allow deployment into customer VPCs or on-premise Kubernetes clusters without requiring open inbound ports, VPC peering, or custom IAM roles.
+The platform emerged from Clarifai customers’ issues with AI performance and cost. “If we had a way to think about it holistically and look at our on-prem costs compared to our cloud costs, and then be able to orchestrate across environments with a cost basis, that would be incredibly valuable,” noted a customer, as cited in Clarifai’s announcement.
+
+The compute orchestration capabilities build on Clarifai’s existing AI platform that, the company says, has processed over 2 billion operations in computer vision, language, and audio AI. The company reports maintaining 99.99%+ uptime and 24/7 availability for critical applications.
+
+The compute orchestration capability is currently available in public preview. Organisations interested in testing the platform should contact Clarifai for access.
