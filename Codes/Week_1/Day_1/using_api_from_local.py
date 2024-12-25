@@ -1,10 +1,9 @@
 import requests
-
-#TODO: Add instruction video link to install ollama locally
-#TODO: Streaming = True is not working
+import json
+# TODO: Add instruction video link to install Ollama locally
 
 # Ensure Ollama is installed and running at http://localhost:11434
-# To run local ollama server type: "ollama serve" in terminal
+# To run local Ollama server type: "ollama serve" in terminal
 # Refer to: https://github.com/ollama/ollama/blob/main/docs/api.md for more details
 
 if __name__ == "__main__":
@@ -24,16 +23,38 @@ if __name__ == "__main__":
             "messages": [
                 {"role": "user", "content": que}  # User's question is sent as content
             ],
-            "stream": False  # Set to True if you want streaming responses
+            "stream": False  # Change this to True for streaming responses
         }
 
-        # Send POST request to Ollama API
-        response = requests.post(url, json=payload)
-
-        # Check if the request was successful
-        if response.status_code == 200:
-            data = response.json()
-            print(data["message"]["content"]) 
-            currentQues += 1 
+        if payload["stream"]:
+            # for streaming results
+            try:
+                with requests.post(url, json=payload, stream=True) as response:
+                    if response.status_code == 200:
+                       
+                        for chunk in response.iter_content(chunk_size=None):
+                            if chunk: 
+                                try:
+                                    chunk_decoded = json.loads(chunk.decode("utf-8"))
+                                    if "message" in chunk_decoded and "content" in chunk_decoded["message"]:
+                                        print(chunk_decoded["message"]["content"], end="", flush=True)
+                                except json.JSONDecodeError:
+                                    continue
+                        print()  
+                        currentQues += 1
+                    else:
+                        print(f"Error: {response.status_code} - {response.reason}")
+            except Exception as e:
+                print(f"An error occurred: {e}")
         else:
-            print(f"Error: {response.status_code}")  # Print error if the request fails
+            # For non streaming results
+            try:
+                response = requests.post(url, json=payload)
+                if response.status_code == 200:
+                    data = response.json()
+                    print("Response:", data["message"]["content"])
+                    currentQues += 1
+                else:
+                    print(f"Error: {response.status_code} - {response.reason}")
+            except Exception as e:
+                print(f"An error occurred: {e}")
