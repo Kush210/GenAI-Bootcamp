@@ -12,23 +12,25 @@ Original file is located at
 from datasets import load_dataset
 
 # Load the Amazon Reviews 2023 dataset
-dataset = load_dataset("McAuley-Lab/Amazon-Reviews-2023",'raw_review_Office_Products')
+dataset = load_dataset("McAuley-Lab/Amazon-Reviews-2023","raw_meta_Appliances")
 
 # View the dataset structure
 print(dataset)
+
+import pandas as pd
 
 # Access the 'full' split
 full_data = dataset['full']
 
 # View the first few records
-full_data[:5]
+data = full_data[:5]
+pd.DataFrame(data)
 
 # Take a random 2% sample
-subset = full_data.train_test_split(test_size=0.02)['test']
+subset = full_data.train_test_split(test_size=0.2)['test']
 
 # Verify the size of the subset
 print(f"Original size: {len(full_data)}, Subset size: {len(subset)}")
-
 subset.save_to_disk("amazon_reviews_subset")
 
 # Login to Hugging Face
@@ -39,7 +41,7 @@ from huggingface_hub import HfApi
 from datasets import Dataset
 
 # Create a new dataset repository
-repo_id = "your_username/amazon-reviews-subset"  # Replace `your_username` with your Hugging Face username
+repo_id = "your_username/amazon-appliances-data-subset"  # Replace `your_username` with your Hugging Face username
 api = HfApi()
 api.create_repo(repo_id=repo_id, repo_type="dataset")
 
