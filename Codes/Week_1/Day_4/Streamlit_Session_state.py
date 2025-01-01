@@ -54,4 +54,5 @@ def generate_response(user_input):
             st.markdown(message['content'])
 
 if user_input := st.chat_input("Your Message"):
-    generate_response(user_input)
+    with st.spinner("Generating response..."):
+        generate_response(user_input)
