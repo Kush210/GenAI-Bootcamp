@@ -2,12 +2,16 @@ import streamlit as st
 from unstructured.partition.pdf import partition_pdf
 from collections import defaultdict
 import re
+import os 
+from dotenv import load_dotenv
 from langchain.schema import Document
 from langchain.vectorstores import FAISS
 from langchain.embeddings.huggingface import HuggingFaceEmbeddings
 from langchain.chat_models import ChatOpenAI
 from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
+
+load_dotenv()
 
 # Utility Functions
 def clean_text(text):
@@ -75,7 +79,7 @@ Question:
 Answer:"""
     )
 
-    llm = ChatOpenAI(api_key="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", model="gpt-3.5-turbo", temperature=0)
+    llm = ChatOpenAI(api_key=os.getenv("OPENAI_API_KEY"), model="gpt-3.5-turbo", temperature=0)
     return RetrievalQA.from_chain_type(
         llm=llm,
         retriever=retriever,
