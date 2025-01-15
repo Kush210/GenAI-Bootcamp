@@ -5,51 +5,44 @@
 #      of KEY=VALUE. Example: OPENAI_API_KEY="your_openai_api_key_here"
 
 
-from dotenv import load_dotenv 
-# loading variables from .env file
-load_dotenv() 
-
-import streamlit as st
+from dotenv import load_dotenv
+import os
 from openai import Client
 
-client=Client()
+# Load variables from .env file
+load_dotenv()
 
-def query(user_input): 
+# Initialize the OpenAI Client
+client = Client()
+
+# Function to query OpenAI
+def query(user_input):
     response = client.chat.completions.create(
-        model="gpt-3.5-turbo",
+        model="gpt-4o-mini",
         messages=[
             {"role": "system", "content": "You are a helpful assistant."},
             {"role": "user", "content": user_input}
         ],
         temperature=0.7,
-        max_tokens=150,
-        top_p=1,
-        frequency_penalty=0,
-        presence_penalty=0
+        max_tokens=250,
     )
 
     return response.choices[0].message.content
 
-if "chat_history" not in st.session_state:
-    st.session_state.chat_history = []
+# Main chat loop
+def main():
+    print("Welcome to OpenAI Chat! Type 'exit' to quit.\n")
 
-st.title("OpenAI Chat App")
+    while True:
+        user_input = input("You: ")
+        if user_input.lower() == 'exit':
+            print("Goodbye!")
+            break
 
-def generate_response(user_input):
-    st.session_state.chat_history.append(
-        {"role": "user", "content": user_input}
-    )
+        # Generate response
+        print("Generating response...")
+        response = query(user_input)
+        print(f"Assistant: {response}")
 
-    response = query(user_input)
-
-    st.session_state.chat_history.append(
-        {"role": "assistant", "content": response}
-    )
-
-    for message in st.session_state.chat_history:
-        with st.chat_message(message['role']):
-            st.markdown(message['content'])
-
-if user_input := st.chat_input("Your Message"):
-    with st.spinner("Generating response..."):
-        generate_response(user_input)
+if __name__ == "__main__":
+    main()
