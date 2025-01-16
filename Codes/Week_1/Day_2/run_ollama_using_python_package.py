@@ -6,7 +6,7 @@ import ollama
 if __name__ == "__main__":
     totalAvailableQuestions = 3
     currentQues = 0
-    streaming_Mode = False
+    streaming_Mode = True
 
     while currentQues<totalAvailableQuestions:
         question = str(input("Question: "))
@@ -16,7 +16,7 @@ if __name__ == "__main__":
                 "role":"user",
                 "content":question
             }],
-            stream=False
+            stream=streaming_Mode
         )
 
         if(streaming_Mode):
@@ -24,5 +24,5 @@ if __name__ == "__main__":
                 print(chunk["message"]["content"],end='',flush=True)
             print('\n')
         else:
-            print(response)
+            print(response["message"]["content"])
         currentQues+=1

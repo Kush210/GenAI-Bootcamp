@@ -22,7 +22,7 @@ def chatbot_interface(user_input):
     except Exception as e:
         res = f"Error: {e}"
 
-    return [("User", user_input), ("Assistant", res)], ""
+    return [("User", user_input), ("Assistant", res), ("Test", "This is test")], ""
 
 with gr.Blocks() as chatbot_ui:
     chatbot = gr.Chatbot(label="Chat", height=400)
@@ -35,4 +35,4 @@ with gr.Blocks() as chatbot_ui:
         outputs=[chatbot, user_input]
     )
 
-chatbot_ui.launch()
+chatbot_ui.launch(share = True)

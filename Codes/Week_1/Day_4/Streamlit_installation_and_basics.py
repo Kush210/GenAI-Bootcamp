@@ -5,7 +5,7 @@ st.write("Hey there")
 
 st.title("First app")
 
-st.header("THis is my first app")
+st.header("This is my first app")
 
 st.subheader("Description goes here")
 
