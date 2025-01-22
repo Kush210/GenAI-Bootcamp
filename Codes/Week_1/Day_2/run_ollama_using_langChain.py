@@ -8,7 +8,7 @@ if __name__ == "__main__":
     totalAvailableQues = 3
     currentQues = 0
 
-    template = """Question:{question}
+    template = """Question: {question}
 
     Answer: """
 

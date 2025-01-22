@@ -8,14 +8,14 @@ def query(user_input, context):
 
     system = {
         "role" : "system",
-        "content" : "Your are Vettura obedient and helpful AI assistant. Help the user with his questions and be nice to the user. Also you can access the history of previous messages. do not introduce yourself first just remeber these thing and help the user."
+        "content" : "Your are Vettura, an obedient and helpful AI assistant. Help the user with his questions and be nice to the user."
     }
     
     messages  = []
 
     messages.append(system)
-    for one in context:
-        messages.append(one)
+    for msg in context:
+        messages.append(msg)
     
     user = {
         "role" : "user",
@@ -24,12 +24,14 @@ def query(user_input, context):
     
     messages.append(user)
 
+    st.write(messages)
+
     payload = {
-        "model": "gemma:2b",
+        "model": "llama3.2",
         "messages": messages,
         "stream": False,
         "options" : {
-            "temperature" : 0.1
+            "temperature" : 0.5
         }
     }
 
@@ -51,7 +53,7 @@ st.title("Vettura Chat")
 # Function to generate a response and maintain conversation history
 def generate_response(user_input):
     # Include the last 10 messages as context for the conversation
-    context = st.session_state.chat_history[-10:]  # Take the last 10 messages only
+    context = st.session_state.chat_history[-5:]  # Take the last 5 messages only
     # context
     # Query the API with the user's input and context
     response = query(user_input, context)
