@@ -6,7 +6,7 @@ import ollama
 if __name__ == "__main__":
     totalAvailableQuestions = 3
     currentQues = 0
-    streaming_Mode = True
+    streaming_Mode = False
 
     while currentQues<totalAvailableQuestions:
         question = str(input("Question: "))
