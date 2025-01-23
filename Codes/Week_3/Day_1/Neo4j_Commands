@@ -1,0 +1,31 @@
+CREATE (P1:Trainer {Name: "Dr. Ashish", Research: "LLMS", Organization: "Vettura"})
+CREATE (S1:Student {Name: "Vamshi", Organization: "TCS"})
+CREATE (S2:Student {Name: "Megha", Organization: "Infosys"})
+CREATE (U1:University {Name: "IIT Madras"})
+CREATE (U2:University {Name: "NIT Warangal"});
+
+MATCH (p:Trainer {Name: "Dr. Ashish"}), (s:Student {Name: "Vamshi"})
+CREATE (p)-[:Taught]->(s);
+
+MATCH (p:Trainer {Name: "Dr. Ashish"}), (s:Student {Name: "Megha"})
+CREATE (p)-[:Taught]->(s);
+
+MATCH (p:Trainer {Name: "Dr. Ashish"}), (u:University {Name: "IIT Madras"})
+CREATE (p)-[:Graduated_From]->(u);
+
+MATCH (s:Student {Name: "Vamshi"}), (u:University {Name: "NIT Warangal"})
+CREATE (s)-[:Graduated_From]->(u);
+
+MATCH (s:Student {Name: "Megha"}), (u:University {Name: "IIT Madras"})
+CREATE (s)-[:Graduated_From]->(u);
+
+
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ashishkumarsahani/vettura-genai/refs/heads/main/Codes/Week_3/Day_1/graph-dataset/users_social.csv' AS row
+CREATE(:User{userId:toInteger(row.userId), name:row.name, age: row.age, city:row.city})
+
+
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ashishkumarsahani/vettura-genai/refs/heads/main/Codes/Week_3/Day_1/graph-dataset/posts.csv' AS row
+MATCH (u:User{userId:toInteger (row. userId)})
+CREATE (u)-[:POSTED]->(:Post{postId:toInteger(row.postid), content:row.content, timestamp:datetime(row.timestamp)});
+
+
