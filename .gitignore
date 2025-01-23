@@ -162,3 +162,4 @@ cython_debug/
 #.idea/
 genai 
 genai_env
+neo4j_credentials.txt

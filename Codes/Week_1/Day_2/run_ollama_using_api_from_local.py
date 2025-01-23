@@ -19,7 +19,7 @@ if __name__ == "__main__":
 
         # Preparing the payload to send to Ollama
         payload = {
-            "model": "llama3.2",  # Specify the model you're using (adjust as necessary)
+            "model": "gemma:2b",  # Specify the model you're using (adjust as necessary)
             "messages": [
                 {"role": "user", "content": que}  # User's question is sent as content
             ],
