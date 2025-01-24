@@ -25,7 +25,14 @@ CREATE(:User{userId:toInteger(row.userId), name:row.name, age: row.age, city:row
 
 
 LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ashishkumarsahani/vettura-genai/refs/heads/main/Codes/Week_3/Day_1/graph-dataset/posts.csv' AS row
-MATCH (u:User{userId:toInteger (row. userId)})
+MATCH (u:User{userId:toInteger (row.userId)})
 CREATE (u)-[:POSTED]->(:Post{postId:toInteger(row.postid), content:row.content, timestamp:datetime(row.timestamp)});
 
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/ashishkumarsahani/vettura-genai/refs/heads/main/Codes/Week_3/Day_1/graph-dataset/relationships.csv' AS row
+MATCH (u1:User{userId:toInteger(row.userId1)}), (u2:User{userId:toInteger(row.userId2)})
+CREATE (u1)-[:FRIEND]->(u2)
+CREATE (u1)-[:LIKES]->(u2);
 
+MATCH (u:User{name:"John"})-[:FRIEND]-f(User) RETURN f.name)
+
+MATCH (u:User{name: 'John'})-[:FRIEND]-(f:User)-[: POSTED]->(p:Post) RETURN f.name,p.content
