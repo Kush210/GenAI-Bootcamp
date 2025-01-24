@@ -18,11 +18,13 @@ def query(user_input):
 
 def chatbot_interface(user_input):
     try:
+        print(user_input)
         res = query(user_input)
+        print(res)
     except Exception as e:
         res = f"Error: {e}"
 
-    return [("User", user_input), ("Assistant", res), ("Test", "This is test")], ""
+    return [("User", user_input), ("Assistant", res)], ""
 
 with gr.Blocks() as chatbot_ui:
     chatbot = gr.Chatbot(label="Chat", height=400)
