@@ -27,7 +27,7 @@ def query(user_input, context):
     st.write(messages)
 
     payload = {
-        "model": "llama3.2",
+        "model": "gemma:2b",
         "messages": messages,
         "stream": False,
         "options" : {
