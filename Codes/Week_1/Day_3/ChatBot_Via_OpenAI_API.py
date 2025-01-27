@@ -20,7 +20,7 @@ def query(user_input):
     response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
-            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "developer", "content": "You are a helpful assistant."},
             {"role": "user", "content": user_input}
         ],
         temperature=0.7,
