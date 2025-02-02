@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import asyncio
 import streamlit as st
 import os
@@ -6,10 +7,16 @@ from groq import Groq
 from dotenv import load_dotenv
 import ollama
 import json
+=======
+import streamlit as st
+import os
+from dotenv import load_dotenv
+>>>>>>> vettura/main
 
 # Load environment variables
 load_dotenv()
 
+<<<<<<< HEAD
 # initialize clients
 openai = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 groq = Groq(api_key=os.getenv("GROQ_API_KEY"))
@@ -24,6 +31,13 @@ if "counter" not in st.session_state:
 
 # Function to handle Steve's response
 @st.cache_data
+=======
+# Initialize session state for chat history
+if "chat_history" not in st.session_state:
+    st.session_state.chat_history = []
+
+# Function to handle Steve's response
+>>>>>>> vettura/main
 def query_steve(user_input, context):
     """
     This function should:
@@ -31,6 +45,7 @@ def query_steve(user_input, context):
     - Pass the context and user input to an API (e.g., Anthropic Claude or OpenAI).
     - Return Steve's response as a concise message (max 200 words).
     """
+<<<<<<< HEAD
     print("querying steve ...")
 
     # reduced context to last 3 messages to save on rate limits
@@ -60,6 +75,11 @@ def query_steve(user_input, context):
 
 # Function to handle Elon's response
 @st.cache_data
+=======
+    pass  # Replace with API integration logic and system prompts.
+
+# Function to handle Elon's response
+>>>>>>> vettura/main
 def query_elon(user_input, context):
     """
     This function should:
@@ -67,6 +87,7 @@ def query_elon(user_input, context):
     - Pass the context and user input to an API (e.g., OpenAI GPT-4 or Groq API).
     - Return Elon's response as a concise message (max 200 words).
     """
+<<<<<<< HEAD
     print("querying Elon ...")
     # reduced context to last 3 messages to save on rate limits
     context = st.session_state.chat_history[-3:]
@@ -98,12 +119,19 @@ def query_elon(user_input, context):
 
 # Function to simulate the debate
 def simulate_debate(user_input):
+=======
+    pass  # Replace with API integration logic and system prompts.
+
+# Function to simulate the debate
+def simulate_debate():
+>>>>>>> vettura/main
     """
     This function should:
     - Alternate between querying Steve and Elon for a set number of turns (e.g., 50).
     - Maintain a conversation history in `st.session_state.chat_history`.
     - Use each bot's previous response to generate the next input for the other.
     """
+<<<<<<< HEAD
     st.session_state.chat_history.append({"role": "user", "content": user_input})
 
     # Let the debate happen for a sequence of 50 conversations.
@@ -130,6 +158,9 @@ def simulate_debate(user_input):
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
 
+=======
+    pass  # Implement the logic for alternating between Steve and Elon.
+>>>>>>> vettura/main
 
 # Function for judging the debate
 def judge():
@@ -139,6 +170,7 @@ def judge():
     - Use a language model to evaluate the debate on criteria like clarity, engagement, and tone.
     - Determine and return the winner.
     """
+<<<<<<< HEAD
     votes = {"assistant_Steve_Jobs": 0, "assistant_Elon_Musk": 0}
     summary = ""
 
@@ -200,6 +232,9 @@ def judge():
 
     return (winner, final_summary.choices[0].message.content)
 
+=======
+    pass  # Replace with logic to analyze conversation and determine the winner.
+>>>>>>> vettura/main
 
 # Streamlit UI setup
 def main():
@@ -211,6 +246,7 @@ def main():
     st.title("Steve vs. Elon: The Great Debate")
 
     # Start the debate
+<<<<<<< HEAD
     user_input = st.chat_input("Initiate the debate with a topic:")
     if st.button("Start Debate"):
         if not user_input:
@@ -226,6 +262,16 @@ def main():
         st.write(winner)
         st.write(summary)
 
+=======
+    if st.button("Start Debate"):
+        simulate_debate()
+
+    # Display judge's verdict
+    if st.button("Judge the Debate"):
+        winner = judge()
+        st.subheader("Judge's Verdict")
+        st.write(winner)
+>>>>>>> vettura/main
 
 if __name__ == "__main__":
     main()
