@@ -13,7 +13,6 @@ from langchain.load import dumps, loads
 filterwarnings('ignore')
 load_dotenv()
 
-
 def setup_vectorstore(chunks):
     embeddings = HuggingFaceEmbeddings(model_name="BAAI/bge-large-en", encode_kwargs={'normalize_embeddings': True})
     return FAISS.from_documents(chunks, embeddings)
@@ -52,7 +51,8 @@ def process_text_file(file_path):
 # Main function
 if __name__ == "__main__":
     # Read text file and process into chunks
-    text_file_path = r"D:\Projs\Epilepto\kangra_fort.txt"  # Replace with the path to your text file
+    print(os.getcwd())
+    text_file_path = "Kangra_Fort_Dataset/kangra_fort.txt"  # Replace with the path to your text file
     chunks = process_text_file(text_file_path)
 
     # print(chunks)
@@ -74,12 +74,20 @@ if __name__ == "__main__":
 
     retrieval_chain_rag_fusion = generate_queries | retriever.map()
     # original question
-    original_question = 'A fort in Kangra ?'
+    original_question = 'Courtyard walls?'
     
     # retrieve documents
     print("queries",retrieval_chain_rag_fusion)
     results = retrieval_chain_rag_fusion.invoke({"question": original_question})
     print("generated queries :", results)
+
+    # Generate search queries
+    generated_queries = generate_queries.invoke({"question": original_question})
+
+    # Print the generated queries
+    print("Generated Queries:")
+    for i, query in enumerate(generated_queries, start=1):
+        print(f"Query {i}: {query}")
 
     print(len(results))
     # we have 4 generated questions

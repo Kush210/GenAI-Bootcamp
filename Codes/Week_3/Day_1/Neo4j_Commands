@@ -1,3 +1,6 @@
+MATCH (n)
+DETACH DELETE n;
+
 CREATE (P1:Trainer {Name: "Dr. Ashish", Research: "LLMS", Organization: "Vettura"})
 CREATE (S1:Student {Name: "Vamshi", Organization: "TCS"})
 CREATE (S2:Student {Name: "Megha", Organization: "Infosys"})
@@ -33,6 +36,6 @@ MATCH (u1:User{userId:toInteger(row.userId1)}), (u2:User{userId:toInteger(row.us
 CREATE (u1)-[:FRIEND]->(u2)
 CREATE (u1)-[:LIKES]->(u2);
 
-MATCH (u:User{name:"John"})-[:FRIEND]-f(User) RETURN f.name)
+MATCH (u:User{name:"John"})-[:FRIEND]-(f:User) RETURN f.name
 
 MATCH (u:User{name: 'John'})-[:FRIEND]-(f:User)-[: POSTED]->(p:Post) RETURN f.name,p.content

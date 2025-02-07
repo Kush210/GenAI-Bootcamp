@@ -1,0 +1,18 @@
+Description:
+HA-2640 and HA-2645 are monolithic operational amplifiers which are designed to deliver unprecedented dynamic specifications for a high voltage internally compensated device. These dielectrically isolated devices offer very low values for offset voltage and offset current coupled with large output voltage swing and common mode input voltage. For maximum reliability, these amplifiers offer unconditional output overload protection through current limiting and a chip temperature sensing circuit. This sensing device turns the amplifier off, when the chip reaches a certain temperature level. These amplifiers deliver ±35V common mode input voltage range, ±35V output voltage swing, and up to ±40V supply range for use in such designs as regulators, power supplies, and industrial control systems. 4MHz gain bandwidth and 5V/µs slew rate make these devices excellent components for high performance signal conditioning applications. Outstanding input and output voltage swings coupled with a low 5nA offset current make these amplifiers excitation designs.
+
+Features:
+Output Voltage Swing ±35V
+Supply Voltage ±10V to ±40V
+Offset Current 5nA
+Bandwidth 4MHz
+Slew Rate 5V/µs
+Common Mode Input Voltage Range ±35V
+Output Overload Protection
+
+Applications:
+Industrial Control Systems
+Power Supplies
+High Voltage Regulators
+Resolver Excitation
+Signal Conditioning
