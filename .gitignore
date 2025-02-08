@@ -163,5 +163,5 @@ cython_debug/
 genai 
 genai_env
 neo4j_credentials.txt
-chromDB
+chromaDB
 chromaDB1
