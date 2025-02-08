@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Description:
 The EL4543 is a high bandwidth triple differential amplifier with integrated encoding of video sync signals. The inputs are suitable for handling High-Speed video or other communications signals in either single-ended or differential form, and the common-mode input range extends all the way to the negative rail enabling ground-referenced signaling in single supply applications. The high bandwidth enables differential signaling onto standard twisted-pair or coax with very low harmonic distortion, while internal feedback ensures balanced gain and phase at the outputs reducing radiated EMI and harmonics. Embedded logic encodes standard video horizontal and vertical sync signals onto the common mode of the twisted pair(s), transmitting this additional information without the requirement for additional buffers or transmission lines. The EL4543 enables significant system cost savings when compared with discrete line driver alternatives. The EL4543 is available in both a 24 Ld QSOP package and a 20 Ld QFN package and is specified for operation over the -40°C to +85°C temperature range.
 
@@ -15,4 +16,23 @@ Applications:
 Twisted-pair drivers
 Differential line drivers
 VGA over twisted-pair
+=======
+Description:
+The EL4543 is a high bandwidth triple differential amplifier with integrated encoding of video sync signals. The inputs are suitable for handling High-Speed video or other communications signals in either single-ended or differential form, and the common-mode input range extends all the way to the negative rail enabling ground-referenced signaling in single supply applications. The high bandwidth enables differential signaling onto standard twisted-pair or coax with very low harmonic distortion, while internal feedback ensures balanced gain and phase at the outputs reducing radiated EMI and harmonics. Embedded logic encodes standard video horizontal and vertical sync signals onto the common mode of the twisted pair(s), transmitting this additional information without the requirement for additional buffers or transmission lines. The EL4543 enables significant system cost savings when compared with discrete line driver alternatives. The EL4543 is available in both a 24 Ld QSOP package and a 20 Ld QFN package and is specified for operation over the -40°C to +85°C temperature range.
+
+Features:
+Fully differential inputs, outputs, and feedback
+350MHz -3dB bandwidth
+1200V/µs slew rate
+-75dB distortion at 5MHz
+Single 5V to 12V operation
+50mA minimum output current
+Low power - 36mA total typical supply current
+Pb-free available (RoHS compliant)
+
+Applications:
+Twisted-pair drivers
+Differential line drivers
+VGA over twisted-pair
+>>>>>>> vettura/main
 Transmission of analog signals in a noisy environment

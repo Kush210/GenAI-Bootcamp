@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Description:
 The ISL28177 is an OP07 replacement featuring low input offset voltage, low input bias current, and competitive noise and AC performance. The ESD ratings are best among competitive parts at 5kV HBM, 300V MM, and 2. 2kV CDM. The amplifier operates over the 6V (±3V) to 40V (±20V) range. Applications include precision active filters, medical and analytical instrumentation, precision power supply controls, and industrial sensors. The ISL28177 is available in the SOT23-5 and SOIC-8 packages and operates over the extended temperature range to -40°C to +125°C.
 
@@ -16,4 +17,24 @@ Applications:
 Precision Active Filters
 Medical and Analytical Instrumentation
 Precision Power Supply Controls
+=======
+Description:
+The ISL28177 is an OP07 replacement featuring low input offset voltage, low input bias current, and competitive noise and AC performance. The ESD ratings are best among competitive parts at 5kV HBM, 300V MM, and 2. 2kV CDM. The amplifier operates over the 6V (±3V) to 40V (±20V) range. Applications include precision active filters, medical and analytical instrumentation, precision power supply controls, and industrial sensors. The ISL28177 is available in the SOT23-5 and SOIC-8 packages and operates over the extended temperature range to -40°C to +125°C.
+
+Features:
+Wide Supply Range: 6V (±3V) to 40V (±20V)
+Low Input Offset Voltage: 150µV, Max
+Input Bias Current: 1nA, Max
+Low Noise: 9.5nV/√Hz @ 1kHz
+Gain Bandwidth: 600kHz
+Exceptional ESD Performance: 5kV HBM, 300V MM, 2.2kV CDM
+Operating Temperature Range: -40°C to +125°C
+Packages
+ISL28177 (Single): SOT23-5, SOIC-8
+
+Applications:
+Precision Active Filters
+Medical and Analytical Instrumentation
+Precision Power Supply Controls
+>>>>>>> vettura/main
 Industrial Sensors

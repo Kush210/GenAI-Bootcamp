@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Description:
 The EL5178 and EL5378 are single and triple high bandwidth amplifiers with an output in differential form. They are primarily targeted for applications such as driving twisted-pair lines in component video applications. The inputs can be in either single-ended or differential form but the outputs are always in differential form. On the EL5178 and EL5378, two feedback inputs provide the user with the ability to set the gain of each device (stable at minimum gain of 2). The output common mode level for each channel is set by the associated REF pin, which has a -3dB bandwidth of over 110MHz. Generally, these pins are grounded but can be tied to any voltage reference. All outputs are short-circuit protected to withstand temporary overload condition. The EL5178 is available in 8 Ld MSOP and SOIC packages and EL5378 is available in a 28 Ld QSOP package. All are specified for operation over the full -40°C to +85°C temperature range.
 
@@ -18,4 +19,26 @@ Differential line driver
 VGA over twisted-pair
 ADSL/HDSL driver
 Single-ended to differential amplification
+=======
+Description:
+The EL5178 and EL5378 are single and triple high bandwidth amplifiers with an output in differential form. They are primarily targeted for applications such as driving twisted-pair lines in component video applications. The inputs can be in either single-ended or differential form but the outputs are always in differential form. On the EL5178 and EL5378, two feedback inputs provide the user with the ability to set the gain of each device (stable at minimum gain of 2). The output common mode level for each channel is set by the associated REF pin, which has a -3dB bandwidth of over 110MHz. Generally, these pins are grounded but can be tied to any voltage reference. All outputs are short-circuit protected to withstand temporary overload condition. The EL5178 is available in 8 Ld MSOP and SOIC packages and EL5378 is available in a 28 Ld QSOP package. All are specified for operation over the full -40°C to +85°C temperature range.
+
+Features:
+Fully differential inputs, outputs, and feedback
+Differential input range ±2.3V
+700MHz 3dB bandwidth
+1000V/μs slew rate
+Low distortion at 5MHz and 20MHz
+Single 5V or dual ±5V supplies
+60mA maximum output current
+Low power - 12.5mA per channel
+Pb-free (RoHS compliant)
+
+Applications:
+Twisted-pair driver
+Differential line driver
+VGA over twisted-pair
+ADSL/HDSL driver
+Single-ended to differential amplification
+>>>>>>> vettura/main
 Transmission of analog signals in a noisy environment

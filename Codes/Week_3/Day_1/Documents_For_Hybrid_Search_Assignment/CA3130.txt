@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Description:
 
 CA3130A and CA3130 are op amps that combine the advantage of both CMOS and bipolar transistors. Gate-protected P-Channel MOSFET (PMOS) transistors are used in the input circuit to provide very-high-input impedance, very-low-input current, and exceptional speed performance. The use of PMOS transistors in the input stage results in common-mode input-voltage capability down to 0. 5V below the negative-supply terminal, an important attribute in single-supply applications. A CMOS transistor-pair, capable of swinging the output voltage to within 10mV of either supply-voltage terminal (at very high values of load impedance), is employed as the output circuit. The CA3130 Series circuits operate at supply voltages ranging from 5V to 16V, (±2. 5V to &#plusmn8V). They can be phase compensated with a single external capacitor, and have terminals for adjustment of offset voltage for applications requiring offset-null capability. Terminal provisions are also made to permit strobing of the output stage. The CA3130A offers superior input characteristics over those of the CA3130.
@@ -21,3 +22,28 @@ Voltage Regulators (Permits Control of Output Voltage Down to 0V)
 Peak Detectors
 Single-Supply Full-Wave Precision Rectifiers
 Photo-Diode Sensor Amplifiers
+=======
+Description:
+
+CA3130A and CA3130 are op amps that combine the advantage of both CMOS and bipolar transistors. Gate-protected P-Channel MOSFET (PMOS) transistors are used in the input circuit to provide very-high-input impedance, very-low-input current, and exceptional speed performance. The use of PMOS transistors in the input stage results in common-mode input-voltage capability down to 0. 5V below the negative-supply terminal, an important attribute in single-supply applications. A CMOS transistor-pair, capable of swinging the output voltage to within 10mV of either supply-voltage terminal (at very high values of load impedance), is employed as the output circuit. The CA3130 Series circuits operate at supply voltages ranging from 5V to 16V, (±2. 5V to &#plusmn8V). They can be phase compensated with a single external capacitor, and have terminals for adjustment of offset voltage for applications requiring offset-null capability. Terminal provisions are also made to permit strobing of the output stage. The CA3130A offers superior input characteristics over those of the CA3130.
+
+Features:
+Very High ZI = 1.5 TΩ (1.5 x 1012Ω) (Typ)
+Very Low II 5pA (Typ) at 15V Operation = 2pA (Typ) at 5V Operation
+Ideal for Single-Supply Applications
+Common-Mode Input-Voltage Range Includes Negative Supply Rail; Input Terminals can be Swung 0.5V Below Negative Supply Rail
+CMOS Output Stage Permits Signal Swing to Either (or both) Supply Rails
+Pb-Free Plus Anneal Available (RoHS Compliant)
+
+Applications:
+Ground-Referenced Single Supply Amplifiers
+Fast Sample-Hold Amplifiers
+Long-Duration Timers/Monostables
+High-Input-Impedance Comparators (Ideal Interface with Digital CMOS)
+High-Input-Impedance Wideband Amplifiers
+Voltage Followers (eg Follower for Single-Supply D/A Converter)
+Voltage Regulators (Permits Control of Output Voltage Down to 0V)
+Peak Detectors
+Single-Supply Full-Wave Precision Rectifiers
+Photo-Diode Sensor Amplifiers
+>>>>>>> vettura/main
