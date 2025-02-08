@@ -2,16 +2,22 @@ import streamlit as st
 from openai import OpenAI
 from PIL import Image
 
-from diffusers import DiffusionPipeline
+from diffusers import StableDiffusionImg2ImgPipeline
 import torch
 
-from diffusers import DiffusionPipeline
 import requests
 from dotenv import load_dotenv
 from io import BytesIO
 import tempfile
 import os
+from diffusers import StableDiffusionImg2ImgPipeline
 
+device = "cuda"
+model_id_or_path = "runwayml/stable-diffusion-v1-5"
+pipe = StableDiffusionImg2ImgPipeline.from_pretrained(
+    model_id_or_path, torch_dtype=torch.float16
+)
+pipe = pipe.to(device)
 # Load environment variables
 load_dotenv()
 
@@ -24,6 +30,10 @@ if "audio_file" not in st.session_state:
     st.session_state["audio_file"] = None
 if "image" not in st.session_state:
     st.session_state["image"] = None
+if "mod_audio_file" not in st.session_state:
+    st.session_state["mod_audio_file"] = None
+if "mod_image" not in st.session_state:
+    st.session_state["mod_image"] = None
 
 
 # Function to transcribe audio using OpenAI Whisper API
@@ -52,7 +62,7 @@ def transcribe_audio(audio_file_path):
 
 
 # Function to generate an image using DALL-E 3
-def generate_image(prompt, model="dall-e-3", modify=False, img_path=None):
+def generate_image(prompt, modify=False, img_path=None):
     """
     This function should:
     - Take a textual prompt as input.
@@ -64,54 +74,34 @@ def generate_image(prompt, model="dall-e-3", modify=False, img_path=None):
     - Ensure parameters like model, prompt, size, and n are set correctly.
     - Handle API response and errors gracefully.
     """
-    if model == "dall-e-3":
+    if not modify:
         try:
             response = client.images.generate(
-                model=model, prompt=prompt, size="1024x1024", n=1
+                model="dall-e-3", prompt=prompt, size="1024x1024", n=1
             )
             return response.data[0].url
         except Exception as e:
             print(f"Error during image generation: {e}")
             return None
+    elif img_path is not None:
 
-        if modify and img_path != None:
-            response = client.images.edit(
-                model="dall-e-2",
-                image=open(img_path, "rb"),
-                mask=open("mask.png", "rb"),
-                prompt="A sunlit indoor lounge area with a pool containing a flamingo",
-                n=1,
-                size="1024x1024",
-            )
+        response = requests.get(img_path)
+        init_image = Image.open(BytesIO(response.content))
+        images = pipe(
+            prompt=prompt, image=init_image, strength=0.75, guidance_scale=7.5
+        ).images
+        return images[0]
 
-    elif model == "diffusion":
-        try:
-            # Load the Stable Diffusion pipeline
-            model_id = "stabilityai/stable-diffusion-xl-base-1.0"
-            pipe = DiffusionPipeline.from_pretrained(
-                model_id,
-                torch_dtype=torch.float16,
-                use_safetensors=True,
-                variant="fp16",
-            )
-            pipe = pipe.to("cuda")  # move the generator object to a GPU
-            generator = torch.Generator("cuda").manual_seed(0)
-            params = {
-                "prompt": prompt,
-                "num_inference_steps": 100,
-                "num_images_per_prompt": 1,
-                "height": 1024,
-                "weight": 1024,
-                "negative_prompt": "",
-            }
-
-            img = pipe(prompt, num_inference_steps=100).images[0]
-            output_path = "output.png"
-            img.save(output_path)
-            return output_path
-        except Exception as e:
-            print(f"Error during image generation: {e}")
-            return None
+        # if modify and img_path is not None:
+        #     print("using dalle-2")
+        #     response = client.images.edit(
+        #         model="dall-e-2",
+        #         image=open(img_path, "rb"),
+        #         mask=open("mask.png", "rb"),
+        #         prompt="A sunlit indoor lounge area with a pool containing a flamingo",
+        #         n=1,
+        #         size="1024x1024",
+        #     )
 
 
 # Main Streamlit app
@@ -135,29 +125,29 @@ def main():
     # User decides how to handle file upload, saving, and reading.
 
     # file uploader or audio recording widget.
-    audio_file = st.file_uploader("Upload an audio file", type=["wav", "mp3"])
+    audio_file = st.audio_input("Record a voice message")
 
-    if audio_file:
+    if audio_file is not None:
         # User decides file-saving logic (e.g., saving as "temp_audio.mp3").
 
         # save the audio file to a temporary location
         with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as tmpfile:
             tmpfile.write(audio_file.read())
-            st.session_state["audio_file"] = tmpfile.name
+            if st.session_state["audio_file"] is None:
+                st.session_state["audio_file"] = tmpfile.name
 
         temp_audio_path = st.session_state["audio_file"]
         # temp_audio_path = "Recording.mp3"  # Replace with actual saving logic.
 
         # Call the transcription function
-        transcription = transcribe_audio(temp_audio_path)
 
+        transcription = transcribe_audio(temp_audio_path)
         if transcription:
             st.success(f"Transcription: {transcription}")
 
             # Call the image generation function
-            image_url = generate_image(transcription)
-
-            if image_url:
+            if st.session_state["image"] is None:
+                image_url = generate_image(transcription)
                 # Fetch and display the generated image
                 response = requests.get(image_url)
                 image = Image.open(BytesIO(response.content))
@@ -168,69 +158,68 @@ def main():
                 ) as tmpfile:
                     # Save the image to the temporary file
                     image.save(tmpfile, format="PNG")
-                    st.session_state["image"] = tmpfile.name
+                    if st.session_state["image"] is None:
+                        st.session_state["image"] = tmpfile.name
                 temp_image_path = st.session_state["image"]
 
-                st.image(image, caption="Generated Image", use_container_width=True)
+            st.image(
+                st.session_state["image"],
+                caption="Generated Image",
+                use_container_width=True,
+            )
 
-                if st.button("Modify Image"):
+            # wait till the user uploads an audio file for modification
+            st.write("Modify the generated image by providing additional audio input:")
 
-                    # wait till the user uploads an audio file for modification
-                    st.write(
-                        "Modify the generated image by providing additional audio input:"
+            # Allow user to modify the image
+            mod_audio_file = st.audio_input(
+                "Upload an audio file for modifying the generated image",
+            )
+
+            if mod_audio_file:
+
+                # save the audio file to a temporary location
+                with tempfile.NamedTemporaryFile(
+                    delete=False, suffix=".mp3"
+                ) as tmpfile:
+                    tmpfile.write(mod_audio_file.read())
+                    temp_audio_path = tmpfile.name
+
+                mod_transcription = transcribe_audio(temp_audio_path)
+
+                if mod_transcription:
+                    st.success(f"Transcription: {mod_transcription}")
+
+                    # Call the image generation function
+                    mod_image_url = generate_image(
+                        mod_transcription,
+                        modify=True,
+                        img_path=st.session_state["image"],
                     )
 
-                    # Allow user to modify the image
-                    mod_audio_file = st.file_uploader(
-                        "Upload an audio file for modifying the generated image",
-                        type=["wav", "mp3"],
-                    )
+                    if mod_image_url:
+                        # Fetch and display the generated image
+                        response = requests.get(mod_image_url)
+                        mod_image = Image.open(BytesIO(response.content))
 
-                    if mod_audio_file:
-
-                        # save the audio file to a temporary location
-                        with tempfile.NamedTemporaryFile(
-                            delete=False, suffix=".mp3"
-                        ) as tmpfile:
-                            tmpfile.write(mod_audio_file.read())
-                            temp_audio_path = tmpfile.name
-
-                        # Call the transcription function
-                        mod_transcription = transcribe_audio(temp_audio_path)
-
-                        if mod_transcription:
-                            st.success(f"Transcription: {mod_transcription}")
-
-                            # Call the image generation function
-                            mod_image_url = generate_image(
-                                mod_transcription, modify=True, img_path=temp_image_path
+                        # Display the original and modified images side by side
+                        col1, col2 = st.columns(2)
+                        with col1:
+                            st.image(
+                                st.session_state["image"],
+                                caption="Original Image",
+                                use_container_width=True,
                             )
-
-                            if mod_image_url:
-                                # Fetch and display the generated image
-                                response = requests.get(mod_image_url)
-                                mod_image = Image.open(BytesIO(response.content))
-
-                                # Display the original and modified images side by side
-                                col1, col2 = st.columns(2)
-                                with col1:
-                                    st.image(
-                                        image,
-                                        caption="Original Image",
-                                        use_container_width=True,
-                                    )
-                                with col2:
-                                    st.image(
-                                        mod_image,
-                                        caption="Modified Image",
-                                        use_container_width=True,
-                                    )
-                            else:
-                                st.error("Image generation failed.")
+                        with col2:
+                            st.image(
+                                mod_image,
+                                caption="Modified Image",
+                                use_container_width=True,
+                            )
                     else:
-                        st.error("Transcription failed or returned no valid text.")
-            else:
-                st.error("Image generation failed.")
+                        st.error("Image generation failed.")
+                else:
+                    st.error("Transcription failed or returned no valid text.")
         else:
             st.error("Transcription failed or returned no valid text.")
     else:
