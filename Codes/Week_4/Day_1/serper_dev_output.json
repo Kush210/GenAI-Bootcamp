@@ -1,0 +1,198 @@
+{
+    "searchParameters": {
+        "q": "Donald trump",
+        "type": "search",
+        "engine": "google"
+    },
+    "knowledgeGraph": {
+        "title": "Donald Trump",
+        "type": "45th and 47th U.S. President",
+        "website": "https://www.donaldjtrump.com/",
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5l2ARAS7LBLn_cmh0w2ZXC_NOtKTSz30&s=0",
+        "attributes": {
+            "Born": "June 14, 1946 (age 78 years), Jamaica Hospital Medical Center, New York, NY",
+            "Spouse": "Melania Trump (m. 2005), Marla Maples (m. 1993–1999), and Ivana Trump (m. 1977–1990)",
+            "Children": "Barron Trump, Ivanka Trump, Donald Trump Jr., and more",
+            "Party": "Republican Party",
+            "Vice presidents": "JD Vance (2025–) and Mike Pence (2017–2021)",
+            "Education": "Wharton School (1966–1968), Fordham University (1964–1966), New York Military Academy (1959–1964), and more",
+            "Height": "6′ 3″"
+        }
+    },
+    "organic": [
+        {
+            "title": "Donald Trump - Wikipedia",
+            "link": "https://en.wikipedia.org/wiki/Donald_Trump",
+            "snippet": "Donald John Trump (born June 14, 1946) is an American politician, media personality, and businessman serving as the 47th president of the United States ...",
+            "date": "25 minutes ago",
+            "sitelinks": [
+                {
+                    "title": "Political positions of Donald...",
+                    "link": "https://en.wikipedia.org/wiki/Political_positions_of_Donald_Trump"
+                },
+                {
+                    "title": "Family",
+                    "link": "https://en.wikipedia.org/wiki/Family_of_Donald_Trump"
+                },
+                {
+                    "title": "The Making of Donald Trump",
+                    "link": "https://en.wikipedia.org/wiki/The_Making_of_Donald_Trump"
+                },
+                {
+                    "title": "Trump Jr.",
+                    "link": "https://en.wikipedia.org/wiki/Donald_Trump_Jr."
+                }
+            ],
+            "position": 1
+        },
+        {
+            "title": "Donald J. Trump - Facebook",
+            "link": "https://www.facebook.com/DonaldTrump/",
+            "snippet": "Donald J. Trump. 33897130 likes · 1602197 talking about this. This is the official Facebook page for Donald J. Trump.",
+            "position": 2
+        },
+        {
+            "title": "Donald J. Trump – The White House",
+            "link": "https://trumpwhitehouse.archives.gov/people/donald-j-trump/",
+            "snippet": "Donald J. Trump is the 45th President of the United States. He believes the United States has incredible potential and will go on to exceed even its ...",
+            "position": 3
+        },
+        {
+            "title": "Donald J. Trump: Home",
+            "link": "https://www.donaldjtrump.com/",
+            "snippet": "Certified Website of Donald J. Trump For President 2024. America's comeback starts right now. Join our movement to Make America Great Again!",
+            "position": 4
+        },
+        {
+            "title": "President Donald J. Trump (@realdonaldtrump) - Instagram",
+            "link": "https://www.instagram.com/realdonaldtrump/?hl=en",
+            "snippet": "32M Followers, 45 Following, 7396 Posts - President Donald J. Trump (@realdonaldtrump) on Instagram: \"45th President of the United States\"",
+            "position": 5
+        },
+        {
+            "title": "President Donald J. Trump - The White House",
+            "link": "https://www.whitehouse.gov/administration/donald-j-trump/",
+            "snippet": "President Donald J. Trump is returning to the White House to build upon his previous successes and use his mandate to reject the extremist policies.",
+            "position": 6
+        },
+        {
+            "title": "Donald J. Trump | CNN Politics",
+            "link": "https://www.cnn.com/politics/president-donald-trump-47",
+            "snippet": "Keeping track of Trump. Pres. Trump is set to sign a bipartisan immigration bill called the Laken Riley Act.",
+            "sitelinks": [
+                {
+                    "title": "Donald Trump’s presidency by...",
+                    "link": "https://www.cnn.com/2020/12/18/politics/trump-presidency-by-the-numbers/index.html"
+                },
+                {
+                    "title": "Donald Trump’s criminal cases...",
+                    "link": "https://www.cnn.com/2023/06/09/politics/criminal-indictment-trump-what-matters/index.html"
+                },
+                {
+                    "title": "In pictures",
+                    "link": "https://www.cnn.com/2021/01/08/politics/gallery/donald-trump/index.html"
+                }
+            ],
+            "position": 7
+        },
+        {
+            "title": "President Donald J. Trump",
+            "link": "http://www.trumplibrary.gov/trumps/president-donald-j-trump",
+            "snippet": "President Trump began his second term in the White House on January 20, 2025. He is joined by Ohio Senator JD Vance as Vice President.",
+            "position": 8
+        }
+    ],
+    "topStories": [
+        {
+            "title": "Trump’s agenda faces legal challenges as president announces new tariffs",
+            "link": "https://www.cnn.com/politics/live-news/trump-doge-presidency-news-02-10-25/index.html",
+            "source": "CNN",
+            "date": "8 minutes ago",
+            "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJd_K0B3R8zpVNtfIRFlW5UM6_Gnyv9QFxpe7_8VZAzSBsgz-uUmC33XCH8Q&s"
+        },
+        {
+            "title": "Trump Muses About a Third Term, Over and Over Again",
+            "link": "https://www.nytimes.com/2025/02/10/us/politics/trump-third-term.html",
+            "source": "The New York Times",
+            "date": "5 hours ago",
+            "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvDMv-JVDqI0woyNGeOY2gtgAPQH3MC_6iMDWcTtOOOBNTWXZqulFdc2gWuA&s"
+        },
+        {
+            "title": "Trump allies suggest defying court orders after stinging legal rebukes",
+            "link": "https://www.washingtonpost.com/politics/2025/02/10/trump-judges-vance-musk-defy-orders/",
+            "source": "The Washington Post",
+            "date": "48 minutes ago",
+            "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDCYty3hji1zC00fZYCVAynD0aA8HCbOAWpstmdcvhfeCkgR62idHowoIBSQ&s"
+        },
+        {
+            "title": "Trump 2nd term live updates: Durbin says Vance judiciary comments 'one step away from constitutional crisis'",
+            "link": "https://abcnews.go.com/Politics/live-updates/trump-2nd-term-tariffs-trade-war/?id=118643360",
+            "source": "ABC News - Breaking News, Latest News and Videos",
+            "date": "1 hour ago",
+            "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsHSiEAyM606PN9vLX_H_sb9alviCAW1cWvVL_fHWyNH7HHkDcci66COWkpw&s"
+        },
+        {
+            "title": "What the polls can tell us about the early days of Trump's second term: From the Politics Desk",
+            "link": "https://www.nbcnews.com/politics/polls-early-days-trump-second-term-politics-desk-rcna191561",
+            "source": "NBC News",
+            "date": "3 hours ago",
+            "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpBu1aiGnvg4u9PMV86i35NBJlccfAT4JGxcJ3qkj4L2fPcRtRVSkWew-6ag&s"
+        },
+        {
+            "title": "Live updates: Palestinians won’t have the right to return to Gaza under Trump’s plan for the territory",
+            "link": "https://apnews.com/live/donald-trump-news-2-10-2025",
+            "source": "AP News",
+            "date": "6 hours ago",
+            "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn3TEhnRqIif5brOtoTSqV7VgaK7r4MBfVJRT0nPQSi00k7x9KlH0_ct5X_w&s"
+        },
+        {
+            "title": "Iran Sends Warning To Donald Trump",
+            "link": "https://www.newsweek.com/iran-leaders-send-anniversary-warning-donald-trump-2028718",
+            "source": "Newsweek",
+            "date": "12 hours ago",
+            "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK7u7sHAx0tX0a0NGEUfWaMtP2Byt5JyqJ9ANkepvhpiF-nFDD0a9cC6UxFQ&s"
+        },
+        {
+            "title": "Trump declines to endorse Vance for 2028 but says VP is 'very capable'",
+            "link": "https://www.usatoday.com/story/news/politics/2025/02/10/vance-2028-donald-trump-endorsement/78245504007/",
+            "source": "USA Today",
+            "date": "2 hours ago",
+            "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYbdiNQfAzcENsM6eReH-b9gImP2zWYvSIH5-bYfbl5qNEHeRuF5rMklxSbA&s"
+        },
+        {
+            "title": "Trump Signals He Might Ignore the Courts",
+            "link": "https://www.theatlantic.com/politics/archive/2025/02/trump-vance-courts/681632/",
+            "source": "The Atlantic",
+            "date": "11 hours ago",
+            "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLmrxzd-8L64yQSklNywLw_TBFP94TrN3b7MqmhOLKCnobzE-Y_ZWLeqevmA&s"
+        },
+        {
+            "title": "A Big Social Security Change Proposed by President Donald Trump May Be Bad News for Retirees",
+            "link": "https://www.fool.com/retirement/2025/02/10/big-social-security-change-donald-trump-bad-news/",
+            "source": "The Motley Fool",
+            "date": "16 hours ago",
+            "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI1Tc7rUv_Xjl70EcI5IhmX9CG6e7OQBqFCpMAxHvzRW36euOYRjek6m3gtA&s"
+        }
+    ],
+    "relatedSearches": [
+        {
+            "query": "Donald Trump shoes"
+        },
+        {
+            "query": "Donald Trump net worth"
+        },
+        {
+            "query": "Donald Trump News"
+        },
+        {
+            "query": "Donald Trump approval rating"
+        },
+        {
+            "query": "Donald Trump Truth Social"
+        },
+        {
+            "query": "Donald Trump impeachment"
+        }
+    ],
+    "credits": 1
+}
