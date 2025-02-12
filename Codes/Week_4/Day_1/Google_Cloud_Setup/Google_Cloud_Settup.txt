@@ -1,0 +1,33 @@
+ssh-keygen -t rsa -b 4096 -f ~/.ssh/vettura_gcloud_key
+Make firewall settings manually allow all http and all https traffic from port 8000 to 9000
+ssh -i ~/.ssh/vettura_gcloud_key ashish@34.60.168.55
+sudo apt update
+sudo apt install python3 python3-venv python3-pip -y
+
+cat config
+Host 34.60.168.55
+ HostName 34.60.168.55
+ IdentityFile ~/.ssh/vettura_gcloud_key
+ User ashish
+
+mkdir vettura_training
+cd vettura_training
+
+python3 -m venv training_env
+source training_env/bin/activate
+pip install flask
+pip install streamlit
+
+fuser -k 8080/tcp #kill any process runnig at port
+
+nohup python flask_demo.py --host=0.0.0.0 --port=8080 > flask.log 2>&1 &
+
+nohup streamlit run app.py --server.address=0.0.0.0 --server.port=8501 > streamlit.log 2>&1 &
+📌 Explanation of the Command
+nohup → Prevents the process from terminating when you log out.
+streamlit run app.py → Starts the Streamlit app.
+--server.address=0.0.0.0 → Allows external access.
+--server.port=8501 → Runs on port 8501.
+> streamlit.log 2>&1 → Redirects output and errors to streamlit.log.
+& → Runs the command in the background.
+
