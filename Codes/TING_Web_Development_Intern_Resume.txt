@@ -1,0 +1,45 @@
+John Doe
+
+Email: johndoe@example.com | Phone: (123) 456-7890 | Location: Mumbai, India
+
+OBJECTIVE
+
+Enthusiastic and proactive computer science student seeking a Web Development Intern position at TING, where I can leverage my technical skills and eagerness to learn to contribute positively to the team and clients.
+
+EDUCATION
+
+Bachelor of Science in Computer Science
+XYZ University, Mumbai
+Expected Graduation: May 2024
+
+SKILLS
+
+- Proficient in HTML5, CSS3, and JavaScript.
+- Familiar with frameworks such as Bootstrap and libraries like jQuery.
+- Basic understanding of version control systems including Git.
+- Strong problem-solving skills and ability to conduct thorough testing and debugging of applications.
+
+EXPERIENCE
+
+Web Development Project (University Course Project)
+- Collaborated with a team to design and implement a responsive website for a fictional business using HTML, CSS, and JavaScript.
+- Developed and maintained the site, ensuring optimal functionality and user experience.
+- Adapted design based on user feedback and usability testing results.
+
+Intern, Local IT Firm
+- Assisted in updating client web pages and making necessary content changes per client requests.
+- Learned about web development processes and supported senior developers in research and documentation.
+
+ACHIEVEMENTS
+
+- Successfully completed a basic web development boot camp, gaining hands-on experience in modern web technologies.
+- Participated in hackathons, showcasing innovation, teamwork, and problem-solving skills.
+
+INTERESTS
+
+- Passion for learning new technologies and staying updated with industry trends.
+- Engaged in online courses related to web development best practices and user experience design.
+
+REFERENCES
+
+Available upon request.
